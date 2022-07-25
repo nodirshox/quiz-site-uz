@@ -66,6 +66,7 @@ const data = [
 ]
 
 window.onload = function() {
+    alert("Testing");
     // Identify page
     const path = location.pathname;
     const currentPage = path.split("/").pop();
