@@ -44,7 +44,7 @@ footer {
 input[type="radio"] {
     cursor: pointer;
 }
-input[type="submit"] {
+#submit {
     background-color: #04AB6D;
     color: #FFFFFF;
     padding: 10px;
