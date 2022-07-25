@@ -66,12 +66,11 @@ const data = [
 ]
 
 window.onload = function() {
-    alert("Testing");
     // Identify page
     const path = location.pathname;
     const currentPage = path.split("/").pop();
 
-    if (currentPage === "index.html") {
+    if (currentPage.length === 0 || currentPage === "index.html") {
         // Populate subjects to grid boxes
         const subjects = data.map(e => {
             return `
