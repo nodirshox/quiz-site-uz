@@ -65,62 +65,64 @@ const data = [
     }
 ]
 
-// Identify page
-const path = location.pathname;
-const currentPage = path.split("/").pop();
+window.onload = function() {
+    // Identify page
+    const path = location.pathname;
+    const currentPage = path.split("/").pop();
 
-if (currentPage === "index.html") {
-    // Populate subjects to grid boxes
-    const subjects = data.map(e => {
-        return `
-        <div class="box">
-            <a href="quiz.html?id=${e.id}&q=1">${e.title}</a>
-        </div>
-    `;
-    }).join("");
-    let container = document.getElementById("subjects");
-    container.insertAdjacentHTML("beforeend", subjects);
-} else if (currentPage === "quiz.html") {
-    try {
-        const params = (new URL(location)).searchParams;
-        const subjectId = params.get("id");
-        
-        // Search subject by query param
-        const subjects = data.filter(e => e.id == subjectId);
-        if (subjects.length !== 1) throw "Subject not found";
-    
-        // Set subject to h1
-        const subjectsTitle = subjects[0].title;
-        document.getElementById("subject").innerText = subjectsTitle + " Quiz";
-    
-        // check question is empty or not
-        const questions = subjects[0].questions;
-        if (questions.length === 0) throw "Question set is empty, come back later..."
-        
-        // Find question by id
-        const questionNumber = params.get("q");
-        const selectedQuestion = questions.filter(e => e.id == questionNumber);
-        if (selectedQuestion.length !== 1) throw "Question not found";
-    
-        // Set current question number
-        document.getElementById("current").innerHTML = `Question ${questionNumber} of ${questions.length}`;
-
-        // Set question
-        document.getElementById("title").innerText = selectedQuestion[0].body;
-    
-        // Populate questions
-
-        const options = selectedQuestion[0].options.map((e, index) => {
+    if (currentPage === "index.html") {
+        // Populate subjects to grid boxes
+        const subjects = data.map(e => {
             return `
-            <label for="answer${index + 1}" class="option">
-                <input type="radio" id="answer${index + 1}" value=${e.id} name="question">
-                ${e.text}
-            </label>
-            `
+            <div class="box">
+                <a href="quiz.html?id=${e.id}&q=1">${e.title}</a>
+            </div>
+        `;
         }).join("");
-        document.getElementById("options").insertAdjacentHTML("beforeend", options); 
-    } catch (e) {
-        alert(e);
-        window.location = "index.html";
+        let container = document.getElementById("subjects");
+        container.insertAdjacentHTML("beforeend", subjects);
+    } else if (currentPage === "quiz.html") {
+        try {
+            const params = (new URL(location)).searchParams;
+            const subjectId = params.get("id");
+            
+            // Search subject by query param
+            const subjects = data.filter(e => e.id == subjectId);
+            if (subjects.length !== 1) throw "Subject not found";
+        
+            // Set subject to h1
+            const subjectsTitle = subjects[0].title;
+            document.getElementById("subject").innerText = subjectsTitle + " Quiz";
+        
+            // check question is empty or not
+            const questions = subjects[0].questions;
+            if (questions.length === 0) throw "Question set is empty, come back later..."
+            
+            // Find question by id
+            const questionNumber = params.get("q");
+            const selectedQuestion = questions.filter(e => e.id == questionNumber);
+            if (selectedQuestion.length !== 1) throw "Question not found";
+        
+            // Set current question number
+            document.getElementById("current").innerHTML = `Question ${questionNumber} of ${questions.length}`;
+
+            // Set question
+            document.getElementById("title").innerText = selectedQuestion[0].body;
+        
+            // Populate questions
+
+            const options = selectedQuestion[0].options.map((e, index) => {
+                return `
+                <label for="answer${index + 1}" class="option">
+                    <input type="radio" id="answer${index + 1}" value=${e.id} name="question">
+                    ${e.text}
+                </label>
+                `
+            }).join("");
+            document.getElementById("options").insertAdjacentHTML("beforeend", options); 
+        } catch (e) {
+            alert(e);
+            window.location = "index.html";
+        }
     }
 }
