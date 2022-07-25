@@ -21,6 +21,9 @@ footer {
     margin-left: auto;
     margin-right: auto;
 }
+.center {
+    text-align: center;
+}
 /* Main page */
 .intro {
     text-align: center;
@@ -44,7 +47,7 @@ footer {
 input[type="radio"] {
     cursor: pointer;
 }
-#submit {
+.btn {
     background-color: #04AB6D;
     color: #FFFFFF;
     padding: 10px;
@@ -60,12 +63,6 @@ input[type="radio"] {
     display: block;
     cursor: pointer;
 }
-.send {
-    display: flex;
-}
-.submit {
-    width: 70%;
-}
 .time {
     width: 30%;
     text-align: right;
@@ -73,4 +70,10 @@ input[type="radio"] {
 }
 .question {
     margin: 10px 0;
+}
+
+/* Result page */
+#percentage {
+    font-weight: bold;
+    margin: 15px 0;
 }
