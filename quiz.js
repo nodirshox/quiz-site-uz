@@ -110,7 +110,6 @@ window.onload = function() {
             document.getElementById("title").innerText = selectedQuestion[0].body;
         
             // Populate questions
-
             const options = selectedQuestion[0].options.map((e, index) => {
                 return `
                 <label for="answer${index + 1}" class="option">
@@ -119,7 +118,8 @@ window.onload = function() {
                 </label>
                 `
             }).join("");
-            document.getElementById("options").insertAdjacentHTML("beforeend", options); 
+            document.getElementById("options").insertAdjacentHTML("beforeend", options);
+            
         } catch (e) {
             alert(e);
             window.location = "index.html";
