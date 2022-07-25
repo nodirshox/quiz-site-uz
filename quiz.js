@@ -162,7 +162,7 @@ const data = [
         "questions": [
             {
                 "id": "1",
-                "body": "What is HTML?",
+                "body": "What is the full form of HTML?",
                 "options": [
                     {
                         "id": "1",
@@ -218,6 +218,21 @@ const data = [
     {
         "id": "2",
         "title": "CSS",
-        "questions": []
+        "questions": [{
+                "id": "1",
+                "body": "What is the full form of CSS?",
+                "options": [
+                    {
+                        "id": "1",
+                        "text": "Style Web Pages",
+                        "correct": false
+                    },
+                    {
+                        "id": "2",
+                        "text": "Cascading Style Sheets",
+                        "correct": true
+                    }
+                ]
+        }]
     }
 ]
