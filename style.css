@@ -39,6 +39,9 @@ footer {
     color: #FFFFFF;
     display: block;
 }
+.box:hover, .btn:active  {
+    background-color: #07915e;
+}
 #subjects {
     display: grid;
     grid-template-columns: auto auto;
@@ -62,6 +65,9 @@ input[type="radio"] {
     margin: 3px 0;
     display: block;
     cursor: pointer;
+}
+.option:hover {
+    background-color: #dadada;
 }
 .time {
     width: 30%;
