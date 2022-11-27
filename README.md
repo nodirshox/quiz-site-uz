@@ -1,1 +1,3 @@
-## Quiz App using HTML, CSS, Javascipt
+## Quiz App using HTML, CSS, JavaScript
+
+![Sample](/assets/main.png "Sample")
