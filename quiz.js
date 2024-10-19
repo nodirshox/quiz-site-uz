@@ -23,7 +23,7 @@ window.onload = function () {
       const subject = searchSubjectById(subjectId);
 
       // Set subject to h1
-      document.getElementById("subject").innerText = subject.title + " Quiz";
+      document.getElementById("subject").innerText = subject.title;
       totalQuestions = countTotalQuestion(subject.questions);
       const correctAnswers = countAnswers(subjectId);
       document.getElementById(
@@ -90,7 +90,7 @@ function populateQuestion() {
   const subject = searchSubjectById(subjectId);
 
   // Set subject to h1
-  document.getElementById("subject").innerText = subject.title + " Quiz";
+  document.getElementById("subject").innerText = subject.title;
 
   totalQuestions = countTotalQuestion(subject.questions);
 
